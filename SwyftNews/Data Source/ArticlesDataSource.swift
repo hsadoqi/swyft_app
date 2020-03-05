@@ -8,10 +8,16 @@
 
 import Foundation
 
-struct NewsfeedManager {
+protocol ArticleDataSourceDelegate {
+    func articlesDidUpdate(_ articlesDataSource: ArticlesDataSource, articles: [ArticleModel])
+}
+
+struct ArticlesDataSource {
     let newsAPI = "https://newsapi.org/v2/top-headlines?country=us&apiKey=47b4a89f118f4f80a79df9c1ffc5d7e1"
     
-    func fetchNews(){
+    var delegate: ArticleDataSourceDelegate?
+    
+    func fetchNews() {
         if let api = URL(string: newsAPI) {
             let session =  URLSession(configuration: .default)
             let task = session.dataTask(with: api, completionHandler: { (data, response, error) in
@@ -20,31 +26,34 @@ struct NewsfeedManager {
                     return
                 }
                 if let newsJSON = data {
-                    self.parseJSON(newsData: newsJSON)
+                    if let articles = self.parseJSON(newsJSON) {
+                        self.delegate?.articlesDidUpdate(self, articles: articles)
+                    }
                 }
             })
         task.resume()
         }
     }
     
-    func parseJSON(newsData: Data) {
+    func parseJSON(_ newsData: Data) -> [ArticleModel]? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(NewsfeedData.self, from: newsData)
+            let decodedData = try decoder.decode(ArticlesViewModel.self, from: newsData)
             var articles: [ArticleModel] = []
 
             for article in decodedData.articles {
-                if (article.description) != nil && (article.content) != nil {
                     let description = article.description
                     let content = article.content
                     let title = article.title
                     let url = article.url
                     let urlToImage = article.urlToImage
                     articles.append(ArticleModel(title: title, urlToImage: urlToImage, description: description, url: url, content: content))
-                }
             }
+            return articles
+            
         } catch {
             print("error", error)
+            return nil
         }
     }
     
