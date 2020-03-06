@@ -38,7 +38,7 @@ struct ArticlesDataSource {
     func parseJSON(_ newsData: Data) -> [ArticleModel]? {
         let decoder = JSONDecoder()
         do {
-            let decodedData = try decoder.decode(ArticlesViewModel.self, from: newsData)
+            let decodedData = try decoder.decode(ArticlesFeedViewModel.self, from: newsData)
             var articles: [ArticleModel] = []
 
             for article in decodedData.articles {

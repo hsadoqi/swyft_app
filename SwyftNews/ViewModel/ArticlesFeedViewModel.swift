@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct ArticlesViewModel : Decodable{
+struct ArticlesFeedViewModel : Decodable{
     var articles: [ArticleModel] = []
-    
+
 
 }

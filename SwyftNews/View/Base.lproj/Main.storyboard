@@ -3,13 +3,14 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--SwyftNews-->
         <scene sceneID="6MX-Kc-uPf">
             <objects>
-                <tableViewController id="YM8-Nq-lsL" customClass="ArticlesViewController" customModule="SwyftNews" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="YM8-Nq-lsL" customClass="ArticlesFeedViewController" customModule="SwyftNews" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FVN-M4-cGG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,11 +23,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bookmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-iw-IQr">
-                                            <rect key="frame" x="373" y="30" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LkA-zg-gsu">
                                             <rect key="frame" x="0.0" y="0.0" width="84" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -38,13 +34,23 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnG-5Y-OOq">
+                                            <rect key="frame" x="373" y="30" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" backgroundImage="bookmark" catalog="system">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="bookmarkButtonPressed:" destination="rxW-qN-aYI" eventType="touchUpInside" id="wnb-fC-Krd"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ArticleHeadlineLabel" destination="TvJ-Ce-Wke" id="vA9-mT-xD0"/>
                                     <outlet property="articleHeadlineLabel" destination="TvJ-Ce-Wke" id="MQ7-EO-sFz"/>
                                     <outlet property="articleImage" destination="LkA-zg-gsu" id="3wY-a2-LZ3"/>
-                                    <outlet property="bookMark" destination="Acz-iw-IQr" id="jUp-oA-tMh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -53,11 +59,68 @@
                             <outlet property="delegate" destination="YM8-Nq-lsL" id="GNE-jL-uaT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SwyftNews" id="1pj-2c-sSz"/>
+                    <navigationItem key="navigationItem" title="SwyftNews" leftItemsSupplementBackButton="YES" id="1pj-2c-sSz"/>
+                    <connections>
+                        <segue destination="DyN-uc-tox" kind="show" identifier="goToArticle" id="Htb-kU-Q4R"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDq-V8-ZOZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700.0000000000002" y="129.91071428571428"/>
+            <point key="canvasLocation" x="1690" y="130"/>
+        </scene>
+        <!--Article View Controller-->
+        <scene sceneID="4lV-8s-tkj">
+            <objects>
+                <viewController id="DyN-uc-tox" customClass="ArticleViewController" customModule="SwyftNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uU3-UT-HnM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beC-cP-YOn">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="headlineLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jY-dS-pQf" userLabel="headlineLabel">
+                                        <rect key="frame" x="8" y="8" width="398" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sne-PH-Ov6" userLabel="articleContentTextView">
+                                        <rect key="frame" x="8" y="256" width="398" height="510"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaL-WY-OgP" userLabel="articleImageView">
+                                        <rect key="frame" x="8" y="81" width="398" height="179"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="beC-cP-YOn" firstAttribute="trailing" secondItem="KT0-K3-FXt" secondAttribute="trailing" id="2Gl-j0-9IT"/>
+                            <constraint firstItem="beC-cP-YOn" firstAttribute="top" secondItem="KT0-K3-FXt" secondAttribute="top" constant="-10" id="OHR-1y-3bO"/>
+                            <constraint firstAttribute="bottom" secondItem="beC-cP-YOn" secondAttribute="bottom" id="TEN-UG-Ek3"/>
+                            <constraint firstItem="beC-cP-YOn" firstAttribute="leading" secondItem="KT0-K3-FXt" secondAttribute="leading" id="Wzd-ER-bdd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KT0-K3-FXt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hUh-C0-taA"/>
+                    <connections>
+                        <outlet property="articleContentView" destination="Sne-PH-Ov6" id="YKS-us-ujj"/>
+                        <outlet property="articleImageView" destination="iaL-WY-OgP" id="dq2-52-Lnx"/>
+                        <outlet property="headlineLabel" destination="6jY-dS-pQf" id="90x-nW-PEg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILg-Kv-MHm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2573.913043478261" y="129.91071428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vaR-iN-4hx">

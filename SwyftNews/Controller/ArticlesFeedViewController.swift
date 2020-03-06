@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import SDWebImage
 
-class ArticlesViewController: UITableViewController, ArticleDataSourceDelegate {
+class ArticlesFeedViewController: UITableViewController, ArticleDataSourceDelegate {
     var articles: [ArticleModel] = []
-    var articlesViewModel: ArticlesViewModel!
+    var articlesViewModel: ArticlesFeedViewModel!
     var dataSource = ArticlesDataSource()
+    var selectedIndex: IndexPath?
+    var selectedArticle: ArticleModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         dataSource.delegate = self
         dataSource.fetchNews()
     }
@@ -31,23 +33,21 @@ class ArticlesViewController: UITableViewController, ArticleDataSourceDelegate {
             fatalError("The dequeued cell is not an instance of ArticleFeedCell")
         }
         let article = articles[indexPath.row]
-//            let image_url = URL(string: article.urlToImage ?? "")!
-//                if let data = try? Data(contentsOf: image_url) {
-//                    print("it works", data)
-//                    if let image = UIImage(data: data)  {
-//                        print(image)
-//                        cell.articleImage.image = image
-//                    }
-//                }
-
-
+        let image_url = URL(string: article.urlToImage ?? "")
+        cell.articleImage.sd_setImage(with: image_url)
         cell.articleHeadlineLabel.text = article.title
-        
-    
-        
         return cell
         
     }
+    
+    // MARK - UITableView Delegate methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedArticle = articles[indexPath.row]
+        self.performSegue(withIdentifier: "goToArticle", sender: self)
+    }
+
+    
     
     // MARK - Article Data Source Delegate
     
@@ -58,9 +58,23 @@ class ArticlesViewController: UITableViewController, ArticleDataSourceDelegate {
             self.tableView.reloadData()
            }
     }
-    
-    
+
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToArticle" {
+            let destinationVC = segue.destination as! ArticleViewController
+            destinationVC.article = selectedArticle
+        }
+    }
 
 }
 
 
+extension URL {
+    init(staticString string: StaticString) {
+        guard let url = URL(string: "\(string)") else {
+            preconditionFailure("Invalid static URL string: \(string)")
+        }
+        self = url
+    }
+}
