@@ -27,19 +27,35 @@ class ArticlesViewController: UITableViewController, ArticleDataSourceDelegate {
     }
 //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("print", articles[indexPath.row])
-        let cell = tableView.dequeueReusableCell(withIdentifier: "articleFeedCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "articleFeedCell", for: indexPath) as? ArticleTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ArticleFeedCell")
+        }
+        let article = articles[indexPath.row]
+//            let image_url = URL(string: article.urlToImage ?? "")!
+//                if let data = try? Data(contentsOf: image_url) {
+//                    print("it works", data)
+//                    if let image = UIImage(data: data)  {
+//                        print(image)
+//                        cell.articleImage.image = image
+//                    }
+//                }
 
-        cell.textLabel?.text = articles[indexPath.row].title!
+
+        cell.articleHeadlineLabel.text = article.title
+        
+    
+        
         return cell
+        
     }
     
     // MARK - Article Data Source Delegate
     
     func articlesDidUpdate(_ articlesDataSource: ArticlesDataSource, articles: [ArticleModel]) {
-           DispatchQueue.main.async { // Correct
-              self.articles = articles
-              self.tableView.reloadData()
+           DispatchQueue.main.async {
+            self.articles = articles
+            self.tableView.rowHeight = 120
+            self.tableView.reloadData()
            }
     }
     

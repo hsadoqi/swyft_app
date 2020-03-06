@@ -16,6 +16,7 @@
 		23A19B80241078BE00218878 /* ArticlesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A19B7F241078BE00218878 /* ArticlesDataSource.swift */; };
 		23A19B8324107A3000218878 /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A19B8224107A3000218878 /* ArticlesViewModel.swift */; };
 		23A19B8724107EDD00218878 /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A19B8624107EDD00218878 /* ArticleModel.swift */; };
+		23B8D9442411C4E7004EDD32 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B8D9432411C4E7004EDD32 /* ArticleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		23A19B7F241078BE00218878 /* ArticlesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticlesDataSource.swift; path = "SwyftNews/Data Source/ArticlesDataSource.swift"; sourceTree = SOURCE_ROOT; };
 		23A19B8224107A3000218878 /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
 		23A19B8624107EDD00218878 /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleModel.swift; path = SwyftNews/Model/ArticleModel.swift; sourceTree = SOURCE_ROOT; };
+		23B8D9432411C4E7004EDD32 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				23A19B8624107EDD00218878 /* ArticleModel.swift */,
+				23B8D9432411C4E7004EDD32 /* ArticleTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				23A19B8324107A3000218878 /* ArticlesViewModel.swift in Sources */,
 				23691E0924104F1B00B3063E /* ArticlesViewController.swift in Sources */,
 				23691E0524104F1B00B3063E /* AppDelegate.swift in Sources */,
+				23B8D9442411C4E7004EDD32 /* ArticleTableViewCell.swift in Sources */,
 				23691E0724104F1B00B3063E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
