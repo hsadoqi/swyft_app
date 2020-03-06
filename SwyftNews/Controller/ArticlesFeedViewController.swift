@@ -10,16 +10,32 @@ import UIKit
 import SDWebImage
 
 class ArticlesFeedViewController: UITableViewController, ArticleDataSourceDelegate {
+    
     var articles: [ArticleModel] = []
     var articlesViewModel: ArticlesFeedViewModel!
     var dataSource = ArticlesDataSource()
     var selectedIndex: IndexPath?
     var selectedArticle: ArticleModel?
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.delegate = self
         dataSource.fetchNews()
+        let rightButton = UIBarButtonItem(title: "Saved", style: .plain, target: self, action:#selector(bookmarkButtonClicked(sender:)))
+        navigationItem.rightBarButtonItem = rightButton
+    }
+    
+//    @objc func buttonClicked(sender : UIBarButtonItem){
+//        let alert = UIAlertController(title: "Clicked", message: "You have clicked on the button", preferredStyle: .alert)
+//
+//        self.present(alert, animated: true, completion: nil)
+//    }
+
+    
+    @objc func bookmarkButtonClicked(sender: UIBarButtonItem){
+        self.performSegue(withIdentifier: "goToBookmarks", sender: self)
     }
     
     // MARK - UITableView Datasource methods
@@ -36,6 +52,7 @@ class ArticlesFeedViewController: UITableViewController, ArticleDataSourceDelega
         let image_url = URL(string: article.urlToImage ?? "")
         cell.articleImage.sd_setImage(with: image_url)
         cell.articleHeadlineLabel.text = article.title
+        cell.bookMarkArticleFeedButton.isSelected = article.bookmarked!
         return cell
         
     }
@@ -58,14 +75,28 @@ class ArticlesFeedViewController: UITableViewController, ArticleDataSourceDelega
             self.tableView.reloadData()
            }
     }
-
+    
+    
+    
+ 
+    // MARK - Storyboard Segue methods
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToArticle" {
             let destinationVC = segue.destination as! ArticleViewController
             destinationVC.article = selectedArticle
+        } else if segue.identifier == "goToBookmarks"  {
+            let destinationVC = segue.destination as! BookmarksViewController
+            destinationVC.bookmarkedArticles = articles.filter{$0.bookmarked!}
+            destinationVC.articles = articles
         }
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        navigationItem.backBarButtonItem  = backButton
     }
+    
+
+    
 
 }
 

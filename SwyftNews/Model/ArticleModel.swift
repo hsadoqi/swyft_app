@@ -14,4 +14,5 @@ struct ArticleModel : Decodable {
     var description: String? = ""
     var url: String? = ""
     var content: String? = ""
+    var bookmarked: Bool? = false
 }

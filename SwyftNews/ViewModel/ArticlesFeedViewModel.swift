@@ -8,8 +8,13 @@
 
 import Foundation
 
+//protocol ArticlesFeedViewModelDelegate {
+//    func getBookmarkedArticles(_ viewModel: ArticlesFeedViewModel, bookmarkedArticles: [ArticleModel])
+//}
+
 struct ArticlesFeedViewModel : Decodable{
     var articles: [ArticleModel] = []
 
+    
 
 }

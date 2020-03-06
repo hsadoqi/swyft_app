@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232BBF15241238C5000C40E8 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232BBF14241238C5000C40E8 /* BookmarksViewController.swift */; };
 		23691E0524104F1B00B3063E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23691E0424104F1B00B3063E /* AppDelegate.swift */; };
 		23691E0724104F1B00B3063E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23691E0624104F1B00B3063E /* SceneDelegate.swift */; };
 		23691E0924104F1B00B3063E /* ArticlesFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23691E0824104F1B00B3063E /* ArticlesFeedViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		078D190B9CC3EECF7015B98E /* Pods-SwyftNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwyftNews.debug.xcconfig"; path = "Target Support Files/Pods-SwyftNews/Pods-SwyftNews.debug.xcconfig"; sourceTree = "<group>"; };
 		0DBD9A908CED4800F121DACE /* Pods_SwyftNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwyftNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		232BBF14241238C5000C40E8 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		23691E0124104F1B00B3063E /* SwyftNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwyftNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23691E0424104F1B00B3063E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23691E0624104F1B00B3063E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				23691E0824104F1B00B3063E /* ArticlesFeedViewController.swift */,
 				23B8D94D24122981004EDD32 /* ArticleViewController.swift */,
+				232BBF14241238C5000C40E8 /* BookmarksViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232BBF15241238C5000C40E8 /* BookmarksViewController.swift in Sources */,
 				23A19B8724107EDD00218878 /* ArticleModel.swift in Sources */,
 				23B8D94E24122981004EDD32 /* ArticleViewController.swift in Sources */,
 				23A19B80241078BE00218878 /* ArticlesDataSource.swift in Sources */,

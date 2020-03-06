@@ -7,6 +7,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Bookmarks View Controller-->
+        <scene sceneID="hSd-jt-RS4">
+            <objects>
+                <viewController id="Kn9-Yf-oXZ" customClass="BookmarksViewController" customModule="SwyftNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kyS-k7-Ovh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gqL-BX-LSb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="7IE-dV-Tzc" customClass="ArticleTableViewCell" customModule="SwyftNews" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7IE-dV-Tzc" id="ebS-fA-4fQ" customClass="ArticleTableViewCell" customModule="SwyftNews" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ArticleHeadlineLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XmJ-NL-vgh">
+                                                    <rect key="frame" x="98" y="11" width="273" height="68"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gzf-xj-B9F">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMn-B6-CNV">
+                                                    <rect key="frame" x="373" y="35" width="18" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="bookmark.fill" catalog="system"/>
+                                                    <state key="selected" image="bookmark" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bookMarkFeedButton" destination="oMn-B6-CNV" id="Ksx-BF-Fi2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="jHM-Of-S0q"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="DEL-ZM-FHm"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="5yd-0a-Cj2"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QU4-g3-RyE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2571.0144927536235" y="-583.92857142857144"/>
+        </scene>
         <!--SwyftNews-->
         <scene sceneID="6MX-Kc-uPf">
             <objects>
@@ -24,23 +83,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LkA-zg-gsu">
-                                            <rect key="frame" x="0.0" y="0.0" width="84" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ArticleHeadlineLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvJ-Ce-Wke">
-                                            <rect key="frame" x="92" y="11" width="273" height="68"/>
+                                            <rect key="frame" x="98" y="11" width="273" height="68"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnG-5Y-OOq">
-                                            <rect key="frame" x="373" y="30" width="30" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnG-5Y-OOq">
+                                            <rect key="frame" x="377" y="33" width="21" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="feedBookmarkButton"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" backgroundImage="bookmark" catalog="system">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
+                                            <state key="normal" image="bookmark" catalog="system"/>
+                                            <state key="selected" image="bookmark.fill" catalog="system"/>
                                             <connections>
                                                 <action selector="bookmarkButtonPressed:" destination="rxW-qN-aYI" eventType="touchUpInside" id="wnb-fC-Krd"/>
                                             </connections>
@@ -51,6 +110,7 @@
                                     <outlet property="ArticleHeadlineLabel" destination="TvJ-Ce-Wke" id="vA9-mT-xD0"/>
                                     <outlet property="articleHeadlineLabel" destination="TvJ-Ce-Wke" id="MQ7-EO-sFz"/>
                                     <outlet property="articleImage" destination="LkA-zg-gsu" id="3wY-a2-LZ3"/>
+                                    <outlet property="bookMarkArticleFeedButton" destination="pnG-5Y-OOq" id="NL1-9O-ovM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,11 +122,12 @@
                     <navigationItem key="navigationItem" title="SwyftNews" leftItemsSupplementBackButton="YES" id="1pj-2c-sSz"/>
                     <connections>
                         <segue destination="DyN-uc-tox" kind="show" identifier="goToArticle" id="Htb-kU-Q4R"/>
+                        <segue destination="Kn9-Yf-oXZ" kind="show" identifier="goToBookmarks" id="HXv-2O-eQk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDq-V8-ZOZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1690" y="130"/>
+            <point key="canvasLocation" x="1686.9565217391305" y="129.91071428571428"/>
         </scene>
         <!--Article View Controller-->
         <scene sceneID="4lV-8s-tkj">
@@ -75,52 +136,16 @@
                     <view key="view" contentMode="scaleToFill" id="uU3-UT-HnM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beC-cP-YOn">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="headlineLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jY-dS-pQf" userLabel="headlineLabel">
-                                        <rect key="frame" x="8" y="8" width="398" height="75"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sne-PH-Ov6" userLabel="articleContentTextView">
-                                        <rect key="frame" x="8" y="256" width="398" height="510"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaL-WY-OgP" userLabel="articleImageView">
-                                        <rect key="frame" x="8" y="81" width="398" height="179"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="beC-cP-YOn" firstAttribute="trailing" secondItem="KT0-K3-FXt" secondAttribute="trailing" id="2Gl-j0-9IT"/>
-                            <constraint firstItem="beC-cP-YOn" firstAttribute="top" secondItem="KT0-K3-FXt" secondAttribute="top" constant="-10" id="OHR-1y-3bO"/>
-                            <constraint firstAttribute="bottom" secondItem="beC-cP-YOn" secondAttribute="bottom" id="TEN-UG-Ek3"/>
-                            <constraint firstItem="beC-cP-YOn" firstAttribute="leading" secondItem="KT0-K3-FXt" secondAttribute="leading" id="Wzd-ER-bdd"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KT0-K3-FXt"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hUh-C0-taA"/>
-                    <connections>
-                        <outlet property="articleContentView" destination="Sne-PH-Ov6" id="YKS-us-ujj"/>
-                        <outlet property="articleImageView" destination="iaL-WY-OgP" id="dq2-52-Lnx"/>
-                        <outlet property="headlineLabel" destination="6jY-dS-pQf" id="90x-nW-PEg"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="hUh-C0-taA">
+                        <barButtonItem key="backBarButtonItem" title="Item" id="8eh-0V-2AS"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="bookmark" catalog="system" id="QM2-d4-vWW"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILg-Kv-MHm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2573.913043478261" y="129.91071428571428"/>
+            <point key="canvasLocation" x="2572" y="130"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vaR-iN-4hx">
@@ -148,5 +173,6 @@
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="56" height="64"/>
+        <image name="bookmark.fill" catalog="system" width="56" height="64"/>
     </resources>
 </document>

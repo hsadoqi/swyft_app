@@ -1,5 +1,5 @@
 //
-//  ArticleViewController.swift
+//  BookmarksViewController.swift
 //  SwyftNews
 //
 //  Created by Hanaa Sadoqi on 3/6/20.
@@ -7,28 +7,25 @@
 //
 
 import UIKit
-import WebKit
 
-class ArticleViewController: UIViewController, WKNavigationDelegate {
+class BookmarksViewController: UIViewController {
     
-    var article: ArticleModel?
-    var webView: WKWebView!
     
+    var bookmarkedArticles: [ArticleModel] = []
+    var articles: [ArticleModel] = []
 
-    override func loadView() {
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        view = webView
-    }
-    
     override func viewDidLoad() {
-        let url = URL(string: (article?.url)!)
-        webView.load(URLRequest(url: url!))
-        webView.allowsBackForwardNavigationGestures = true
         super.viewDidLoad()
+
+//        getData()
         // Do any additional setup after loading the view.
     }
     
+//    func getData(){
+//        self.bookmarkedArticles = articles.filter($0.bookmarked)
+//    }
+
+
     
     
 
